@@ -78,8 +78,8 @@ public class AmazonAwsSQSConnector extends AbstractSQSConnector {
             _amazonSQS = new AmazonSQSClient(awsCredentials, clientConfiguration);
             _amazonSNS = new AmazonSNSClient(awsCredentials, clientConfiguration);
         }
-    }
 
+    }
     public boolean isTestAlwaysPasses() {
         return _testAlwaysPasses;
     }

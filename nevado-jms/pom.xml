@@ -5,12 +5,12 @@
     <parent>
         <groupId>org.skyscreamer</groupId>
         <artifactId>nevado</artifactId>
-        <version>1.3.3-SNAPSHOT</version>
+        <version>1.3.4</version>
     </parent>
 
-    <groupId>org.skyscreamer</groupId>
+    <groupId>com.spaceboost</groupId>
     <artifactId>nevado-jms</artifactId>
-    <version>1.3.3-SNAPSHOT</version>
+    <version>1.3.4</version>
     <packaging>jar</packaging>
 
     <name>Nevado JMS</name>
@@ -51,7 +51,7 @@
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
-            <version>20090211</version>
+            <version>20170516</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
@@ -73,7 +73,7 @@
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-java-sdk</artifactId>
-            <version>1.6.12</version>
+            <version>1.11.351</version>
         </dependency>
 
         <dependency>
@@ -213,6 +213,11 @@
             <id>joda</id>
             <name>joda repo</name>
             <url>http://oss.sonatype.org/content/repositories/joda-releases/</url>
+        </repository>
+        <repository>
+            <id>maven2</id>
+            <name>maven2</name>
+            <url>https://repo1.maven.org/maven2/</url>
         </repository>
     </repositories>
 </project>

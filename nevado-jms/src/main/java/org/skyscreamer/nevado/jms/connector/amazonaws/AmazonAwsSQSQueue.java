@@ -85,11 +85,23 @@ public class AmazonAwsSQSQueue implements SQSQueue {
     }
 
     @Override
-    public void deleteMessage(String sqsReceiptHandle) throws JMSException {
+    public void deleteMessage(String sqsReceiptHandle) throws JMSException, AmazonClientException {
         try {
             _amazonAwsSQSConnector.getAmazonSQS().deleteMessage(new DeleteMessageRequest(_queueUrl, sqsReceiptHandle));
         } catch (AmazonClientException e) {
             throw _amazonAwsSQSConnector.handleAWSException("Unable to delete message with receipt handle " + sqsReceiptHandle, e);
+        } catch (Exception e) {
+            throw _amazonAwsSQSConnector.handleAWSException("Unable to delete message with receipt handle " + sqsReceiptHandle, null);
+        }
+    }
+
+    public void deleteMessage(DeleteMessageRequest deleteMessageRequest) throws JMSException {
+        try {
+            _amazonAwsSQSConnector.getAmazonSQS().deleteMessage(deleteMessageRequest);
+        } catch (AmazonClientException e) {
+            throw _amazonAwsSQSConnector.handleAWSException("Unable to delete message with receipt handle " + deleteMessageRequest, e);
+        } catch (Exception e) {
+            throw _amazonAwsSQSConnector.handleAWSException("Unable to delete message with receipt handle " + deleteMessageRequest, null);
         }
     }
 
