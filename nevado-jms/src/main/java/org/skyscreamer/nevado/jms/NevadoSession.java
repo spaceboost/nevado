@@ -40,7 +40,7 @@ public class NevadoSession implements Session {
     {
         _connection = connection;
         _transacted = transacted;
-        _acknowledgeMode = acknowledgeMode;
+        _acknowledgeMode = CLIENT_ACKNOWLEDGE;
         _asyncConsumerRunner = new AsyncConsumerRunner(_connection);
     }
 
@@ -344,15 +344,15 @@ public class NevadoSession implements Session {
 
     protected String getDurableEndpointQueueName(String durableSubscriptionName) {
         String queueName;
-        if (_connection.getDurableSubcriptionPrefixOveride() != null) 
+        if (_connection.getDurableSubcriptionPrefixOveride() != null)
         {
             queueName = _connection.getDurableSubcriptionPrefixOveride() + durableSubscriptionName;
-        } 
-        else 
+        }
+        else
         {
             queueName = NevadoProviderQueuePrefix.DURABLE_SUBSCRIPTION_PREFIX + durableSubscriptionName;
         }
-        
+
         if (_connection.getClientID() != null)
         {
             queueName += "_client-" + _connection.getClientID() + "";
