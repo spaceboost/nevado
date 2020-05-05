@@ -40,7 +40,7 @@ public class NevadoSession implements Session {
     {
         _connection = connection;
         _transacted = transacted;
-        _acknowledgeMode = CLIENT_ACKNOWLEDGE;
+        _acknowledgeMode = acknowledgeMode;
         _asyncConsumerRunner = new AsyncConsumerRunner(_connection);
     }
 

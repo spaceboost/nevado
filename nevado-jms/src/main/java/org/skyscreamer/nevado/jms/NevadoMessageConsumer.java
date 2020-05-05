@@ -86,7 +86,7 @@ public class NevadoMessageConsumer implements MessageConsumer, QueueReceiver, To
             Thread.currentThread().interrupt();
             return null;
         }
-        tryAutoAck(message);
+        //tryAutoAck(message);
         return message;
     }
 
@@ -135,7 +135,7 @@ public class NevadoMessageConsumer implements MessageConsumer, QueueReceiver, To
         if (message != null) {
             try {
                 getMessageListener().onMessage(message);
-                tryAutoAck(message);
+                //tryAutoAck(message);
                 messageProcessed = true;
             }
             catch(Throwable t) {
